@@ -3,7 +3,7 @@ import { Context } from "./AppContext";
 import { PropsProvider,AppState } from "../interface/interface";
 
 const state:AppState={
-    name:"Black Widow",
+    name:"Dr. Strange",
     url:"http://marvel.io/bw",
     time: "2 horas"
 }

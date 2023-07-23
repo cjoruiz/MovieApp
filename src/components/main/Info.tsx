@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import {useContext} from 'react';
 import{FaRegPlayCircle,FaStar} from "react-icons/fa";
 import { ContainerInfo,MiniAvatar,ButtonBuy } from "../styled.components";
 import Thor from "../../assets/Thor.png";
+import { Context } from "../../context/AppContext";
 
 const Info=()=>{
     const history=useNavigate();
-const goToDetails=():void=>{
+    const{state}=useContext(Context);
+    const goToDetails=():void=>{
     history('./detail/2');
 }
 
@@ -15,13 +18,13 @@ const goToDetails=():void=>{
             <FaRegPlayCircle size={25} color={'red'}/>
             </section>
             <section className='title-info'>
-                dr strange
+                {state?.name}
             </section>
             <section className="details-info">
                 <section className="list">
                     <div>2020</div>
                     <div>Fantastic</div>
-                    <div>2h 35min</div>
+                    <div>{state?.time}</div>
                 </section>
             </section>
             <section className="star">
@@ -38,11 +41,11 @@ const goToDetails=():void=>{
             <section className="description">
                 <div className="description-title">Cast</div>
                 <div className="images">
-                {[1,2,3,4].map(item=><div>
+                {[1,2,3,4].map(item=>
                     <MiniAvatar key={item} src={Thor}/>
-                    <div className="description-title">texto</div>
-                    <div className="desc">texto</div>
-                    </div>)}
+                    // <div className="description-title">texto</div>
+                    // <div className="desc">texto</div>
+                    )}
                 </div>
             </section>
             <section className="button-buy">

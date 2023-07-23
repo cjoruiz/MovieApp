@@ -1,9 +1,6 @@
 import styled from "styled-components";
+import { Props } from "../interface/interface";
 
-interface Props {
-  height?: number;
-  src?: string;
-}
 export const Flex = styled.div<Props>`
     display:flex;
     flex-direction: column;

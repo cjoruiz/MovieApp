@@ -1,20 +1,7 @@
 import { useEffect,useState } from 'react';
 import {Container,AvatarContainer,Avatar,Degrade} from '../styled.components';
 import Thor from "../../assets/Thor.png";
-
-interface Movie{
-    name:string;
-    description:string;
-    thumbnail:string;
-}
-interface Item{
-    name:string;
-    description:string;
-    thumbnail:{
-        path: string;
-        extension: string;
-    }
-}
+import { Movie,Item } from '../../interface/interface';
 
 const Carousel = (): JSX.Element => {
 
@@ -40,13 +27,13 @@ const Carousel = (): JSX.Element => {
   }, []);
 
     return(<>
-    {data.length>0 &&<>
+    {data.length>0 ?<>
         <Container height={50} src={data[6].thumbnail}/>
        <AvatarContainer height={50}>
        <Avatar height={50} src={Thor}/>
        </AvatarContainer>
        <Degrade height={50}></Degrade>
-    </>
+    </>:<section className='loading'>cargando...</section>
     }
     </>)
 };
